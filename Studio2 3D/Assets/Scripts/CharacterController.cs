@@ -20,6 +20,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpForce = 5;    
     private Animator animator;
     private Vector3 comparative = new Vector3(0, 0, 0);
+    private bool held = false;
+
+    [SerializeField] private float addSpeed = 2.5f;
 
      void Awake()
      {
@@ -44,6 +47,7 @@ public class CharacterController : MonoBehaviour
        input.Main.Move.performed += ctx => MouseMovement();
        jump.Main.Jump.performed += ctx => Jump(ctx);
        sprint.Main.Sprint.performed += ctx => Sprint(ctx);
+       sprint.Main.Sprint.canceled += ctx => NoSprint(ctx);
     }
 
     void MouseMovement()
@@ -97,7 +101,6 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         Look();
-        //Jump();
         Debug.Log("mouse position: " + Input.mousePosition);
         Debug.Log("speed: " + speed);
         Debug.Log("agent speed: " + agent.speed);
@@ -107,25 +110,23 @@ public class CharacterController : MonoBehaviour
     {
         Debug.Log("hello?");
         //agent.enabled = false;
-        if (context.performed)
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     void Sprint(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            animator.SetBool("shift", true);
-            animator.SetBool("HasClicked", false);
-            agent.speed = agent.speed + 2;
-        }
-        else
-        {
-            agent.speed = 3;
-            animator.SetBool("shift", false);
-            animator.SetBool("HasClicked", true);
-        }
-
+        animator.SetBool("shift", true);
+       // animator.SetBool("HasClicked", false);
+        //animator.SetBool("HasClicked", false);
+        agent.speed = agent.speed + addSpeed;
+    }
+    
+    void NoSprint(InputAction.CallbackContext context)
+    {
+        agent.speed = 3;
+        animator.SetBool("shift", false);
+        animator.SetBool("HasClicked", true);
+        //  animator.SetBool("HasClicked", false);
     }
 
     private void Look()
@@ -140,7 +141,7 @@ public class CharacterController : MonoBehaviour
             animator.SetBool("hasClicked", false);
         Debug.Log("direction: " + direction);
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed); // * lookRotationSpeed);
     }
 
     /* private void Update()
