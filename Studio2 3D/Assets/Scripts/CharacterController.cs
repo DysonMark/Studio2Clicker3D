@@ -12,6 +12,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float speed = 5;
     CustomActions input;
     CustomActions jump;
+    CustomActions sprint;
     NavMeshAgent agent;
     private Vector3 destination;
     [SerializeField] LayerMask clickableLayers;
@@ -26,6 +27,7 @@ public class CharacterController : MonoBehaviour
          animator = GetComponent<Animator>();
          input = new CustomActions();
          jump = new CustomActions();
+         sprint = new CustomActions();
          AssignInputs();
     }
 
@@ -41,6 +43,7 @@ public class CharacterController : MonoBehaviour
     {
        input.Main.Move.performed += ctx => MouseMovement();
        jump.Main.Jump.performed += ctx => Jump(ctx);
+       sprint.Main.Sprint.performed += ctx => Sprint(ctx);
     }
 
     void MouseMovement()
@@ -81,12 +84,14 @@ public class CharacterController : MonoBehaviour
     {
         input.Enable();
         jump.Enable();
+        sprint.Enable();
     }
 
     void OnDisable()
     {
         input.Disable();
         jump.Disable();
+        sprint.Disable();
     }
 
     private void Update()
@@ -101,9 +106,26 @@ public class CharacterController : MonoBehaviour
      void Jump(InputAction.CallbackContext context)
     {
         Debug.Log("hello?");
-        agent.enabled = false;
+        //agent.enabled = false;
         if (context.performed)
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void Sprint(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            animator.SetBool("shift", true);
+            animator.SetBool("HasClicked", false);
+            agent.speed = agent.speed + 2;
+        }
+        else
+        {
+            agent.speed = 3;
+            animator.SetBool("shift", false);
+            animator.SetBool("HasClicked", true);
+        }
+
     }
 
     private void Look()
