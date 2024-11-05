@@ -17,7 +17,8 @@ public class InventoryInteractions : MonoBehaviour
     public TextMeshProUGUI coinsText;
 
     int coins = 1000;
-
+    private int click = 0;
+    private int otherClick = 0;
     private int newCoins;
     //[SerializeField] private Material originalMaterial;
     void Start()
@@ -39,7 +40,7 @@ public class InventoryInteractions : MonoBehaviour
 
     void StringToInt()
     {
-        //coinsText.text = "1000";
+        coinsText.text = "1000";
         int.TryParse(coinsText.text, out coins);
         //coinsText.text = string.Format("{1000}", coins);
         Debug.Log("coins: " + coins);
@@ -58,8 +59,14 @@ public class InventoryInteractions : MonoBehaviour
 
     public void PurpleSword()
     {
+        click += 1;
         originalSword.GetComponent<Renderer>().material = purpleMaterial;
-        coins -= 200;
+        if (click == 1)
+            coins -= 200;
+        else
+        {
+         Debug.Log("Sword already equipped");   
+        }
         coinsText.text = coins.ToString();
         
         Debug.Log("value of coins after purple buy: " + coins);
@@ -70,7 +77,15 @@ public class InventoryInteractions : MonoBehaviour
 
     public void RedSword()
     {
+        otherClick += 1;
         originalSword.GetComponent<Renderer>().material = redMaterial;
+        if (otherClick == 1)
+            coins -= 200;
+        else
+        {
+            Debug.Log("Sword already equipped");
+        }
+        coinsText.text = coins.ToString();
         //originalMaterial = redMaterial;
     }
 }
