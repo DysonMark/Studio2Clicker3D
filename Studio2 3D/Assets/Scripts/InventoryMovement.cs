@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InventoryMovement : MonoBehaviour
 {
+    public float angle = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class InventoryMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.RotateAround(this.transform.position, Vector3.up, 20 * Time.deltaTime); 
+        this.transform.Rotate(Vector3.up, angle * Time.deltaTime); 
     }
 }

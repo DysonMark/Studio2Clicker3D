@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventoryInteractions : MonoBehaviour
 {
@@ -13,13 +15,18 @@ public class InventoryInteractions : MonoBehaviour
     [SerializeField] private GameObject originalSword;
     [SerializeField] private Material purpleMaterial;
     [SerializeField] private Material redMaterial;
-
     public TextMeshProUGUI coinsText;
 
     int coins = 1000;
     private int click = 0;
     private int otherClick = 0;
     private int newCoins;
+
+    public int maximum;
+
+    public int current;
+
+    public Image mask;
     //[SerializeField] private Material originalMaterial;
     void Start()
     {
@@ -88,4 +95,11 @@ public class InventoryInteractions : MonoBehaviour
         coinsText.text = coins.ToString();
         //originalMaterial = redMaterial;
     }
+
+    public void FillGauge()
+    {
+        float fillAmount = (float)current / (float)maximum;
+        mask.fillAmount = 1;
+        Debug.Log("Gauge");
+    }   
 }

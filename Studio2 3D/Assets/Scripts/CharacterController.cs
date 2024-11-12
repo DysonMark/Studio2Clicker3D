@@ -101,9 +101,9 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         Look();
-        Debug.Log("mouse position: " + Input.mousePosition);
-        Debug.Log("speed: " + speed);
-        Debug.Log("agent speed: " + agent.speed);
+      //  Debug.Log("mouse position: " + Input.mousePosition);
+      //  Debug.Log("speed: " + speed);
+      //  Debug.Log("agent speed: " + agent.speed);
     }
 
      void Jump(InputAction.CallbackContext context)
