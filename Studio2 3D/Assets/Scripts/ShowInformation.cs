@@ -8,9 +8,12 @@ using UnityEngine.UI;
 
 public class ShowInformation : MonoBehaviour
 {
+    #region Variables
+    
     public GameObject redInformationPanel;
     public GameObject blueInformationPanel;
     public GameObject yellowInformationPanel;
+    #endregion
 
     private void OnMouseOver()
     {

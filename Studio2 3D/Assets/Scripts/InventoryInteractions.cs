@@ -9,9 +9,8 @@ using UnityEngine.UI;
 
 public class InventoryInteractions : MonoBehaviour
 {
+    #region Variables
     [SerializeField] private GameObject canvasCamera;
-    //[SerializeField] private GameObject purpleSword;
-    //[SerializeField] private GameObject redSword;
     [SerializeField] private GameObject originalSword;
     [SerializeField] private Material purpleMaterial;
     [SerializeField] private Material redMaterial;
@@ -27,16 +26,11 @@ public class InventoryInteractions : MonoBehaviour
     public int current;
 
     public Image mask;
-    //[SerializeField] private Material originalMaterial;
+    
+    #endregion
     void Start()
     {
-     //   coinsText = GetComponent<TextMeshProUGUI>();
         StringToInt();
-        //coinsText.text = "Coins : 1000";
-        //  purpleSword = GameObject.Find("PurpleSword");
-        // redSword = GameObject.Find("RedSword");
-        //originalSword = GameObject.Find("OriginalSword");
-
     }
 
     // Update is called once per frame
@@ -49,8 +43,6 @@ public class InventoryInteractions : MonoBehaviour
     {
         coinsText.text = "1000";
         int.TryParse(coinsText.text, out coins);
-        //coinsText.text = string.Format("{1000}", coins);
-        Debug.Log("coins: " + coins);
     }
     private void EnableCanvasCamera()
     {
@@ -74,12 +66,8 @@ public class InventoryInteractions : MonoBehaviour
         {
          Debug.Log("Sword already equipped");   
         }
+
         coinsText.text = coins.ToString();
-        
-        Debug.Log("value of coins after purple buy: " + coins);
-        //originalMaterial = purpleMaterial;
-        // purpleSword.transform.position = originalSword.transform.position;
-        //Debug.Log("Purple sword");
     }
 
     public void RedSword()
@@ -93,13 +81,11 @@ public class InventoryInteractions : MonoBehaviour
             Debug.Log("Sword already equipped");
         }
         coinsText.text = coins.ToString();
-        //originalMaterial = redMaterial;
     }
 
     public void FillGauge()
     {
         float fillAmount = (float)current / (float)maximum;
         mask.fillAmount = 1;
-        Debug.Log("Gauge");
     }   
 }
