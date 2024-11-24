@@ -45,7 +45,6 @@ public class InventoryInteractions : MonoBehaviour
         coinsText.text = "1000";
         int.TryParse(coinsText.text, out coins);
         //coinsText.text = string.Format("{1000}", coins);
-        Debug.Log("coins: " + coins);
     }
     private void EnableCanvasCamera()
     {
