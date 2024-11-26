@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class AttackSystem : MonoBehaviour
 {
+    
+    #region Variables
     private Animator animator;
     
     public CharacterController check;
@@ -16,7 +18,7 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] private float cooldownTime = 2f;
 
     private bool attacking = false;
-    // Start is called before the first frame update
+    #endregion
     void Awake()
     {
         input = new CustomActions();
@@ -25,11 +27,9 @@ public class AttackSystem : MonoBehaviour
 
     private void Update()
     {
-        //attacking = false;
         AssignAttack();
-
     }
-
+    
     void AssignAttack()
     {
         input.Main.Attack.performed += ctx => StartCoroutine(Attack());
@@ -39,9 +39,10 @@ public class AttackSystem : MonoBehaviour
     {
         if (cooldown == false)
         {
+            Debug.Log("Player attacking");
             animator.SetLayerWeight(animator.GetLayerIndex("Attack Layer"), 1); 
             animator.SetTrigger("Attack");
-            cooldown = true;
+            cooldown = true;    
             yield return new WaitForSeconds(cooldownTime);
         }
         cooldown = false;

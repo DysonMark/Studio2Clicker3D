@@ -7344,6 +7344,7 @@ MonoBehaviour:
   lookRotationSpeed: 5
   jumpForce: 5
   addSpeed: 0
+  isMoving: 0
 --- !u!195 &1726620615
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7906,6 +7907,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74cb80329a1df934591bb4491643afd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  check: {fileID: 2013920013}
+  cooldown: 0
+  cooldownTime: 2
+--- !u!114 &2013920013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1433738528927183578, guid: 3c68e2f4d495850468a83d2c3288e8cd, type: 3}
+  m_PrefabInstance: {fileID: 1180903187029192111}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20574875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2812a128f09945540aa12a3451338d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2036887551
