@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Studio2 3D/Assets/Demon Horror Creature with Weapon/Meshes/Demon_apose_clean.fbx.meta
 guid: 72b8548a02478ed45a0f692f82713477
 ModelImporter:
   serializedVersion: 21300
@@ -7,21 +6,6 @@ ModelImporter:
   externalObjects: {}
   materials:
     materialImportMode: 2
-========
-guid: 3a03adf2ad98441248448de3da85ed3a
-ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Column
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Column_LP
-  externalObjects: {}
-  materials:
-    importMaterials: 1
->>>>>>>> f2596364b525813b2b9b75ae63835dae64c9f53a:Studio2 3D/Assets/Walls and floors v.1/Meshes/Column.fbx.meta
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -30,6 +14,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -47,47 +32,41 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
-<<<<<<<< HEAD:Studio2 3D/Assets/Demon Horror Creature with Weapon/Meshes/Demon_apose_clean.fbx.meta
     sortHierarchyByName: 1
-========
->>>>>>>> f2596364b525813b2b9b75ae63835dae64c9f53a:Studio2 3D/Assets/Walls and floors v.1/Meshes/Column.fbx.meta
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
-<<<<<<<< HEAD:Studio2 3D/Assets/Demon Horror Creature with Weapon/Meshes/Demon_apose_clean.fbx.meta
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-========
->>>>>>>> f2596364b525813b2b9b75ae63835dae64c9f53a:Studio2 3D/Assets/Walls and floors v.1/Meshes/Column.fbx.meta
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-<<<<<<<< HEAD:Studio2 3D/Assets/Demon Horror Creature with Weapon/Meshes/Demon_apose_clean.fbx.meta
-========
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
->>>>>>>> f2596364b525813b2b9b75ae63835dae64c9f53a:Studio2 3D/Assets/Walls and floors v.1/Meshes/Column.fbx.meta
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -96,15 +75,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-<<<<<<<< HEAD:Studio2 3D/Assets/Demon Horror Creature with Weapon/Meshes/Demon_apose_clean.fbx.meta
   referencedClips: []
   importAnimation: 1
-========
-  importAnimation: 1
-  copyAvatar: 0
->>>>>>>> f2596364b525813b2b9b75ae63835dae64c9f53a:Studio2 3D/Assets/Walls and floors v.1/Meshes/Column.fbx.meta
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -114,22 +88,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-<<<<<<<< HEAD:Studio2 3D/Assets/Demon Horror Creature with Weapon/Meshes/Demon_apose_clean.fbx.meta
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
-========
-  animationType: 0
-  humanoidOversampling: 1
->>>>>>>> f2596364b525813b2b9b75ae63835dae64c9f53a:Studio2 3D/Assets/Walls and floors v.1/Meshes/Column.fbx.meta
   additionalBone: 0
   userData: 
   assetBundleName: 
