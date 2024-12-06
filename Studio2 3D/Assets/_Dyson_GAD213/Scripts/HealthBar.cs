@@ -28,7 +28,7 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health < 0)

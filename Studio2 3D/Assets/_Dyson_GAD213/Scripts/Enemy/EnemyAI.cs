@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class EnemyAI : MonoBehaviour
@@ -13,6 +14,10 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
 
     public LayerMask isThisGround, isThisPlayer;
+
+    private int enemyHP = 100;
+
+    public Slider healthBar;
    
     //Enemy patroling variables
 
@@ -29,6 +34,10 @@ public class EnemyAI : MonoBehaviour
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+    
+    // Other scripts
+
+    public HealthBar hb;
 
     private void Update()
     {
@@ -41,6 +50,13 @@ public class EnemyAI : MonoBehaviour
             ChasePlayer();
         if (playerInAttackRange && playerInSightRange)
             AttackPlayer();
+
+        healthBar.value = enemyHP;
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            EnemyTakeDamage(10);
+        }
     }
 
     private void Awake()
@@ -49,6 +65,19 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    public void EnemyTakeDamage(int damageAmount)
+    {
+        enemyHP -= damageAmount;
+
+        if (enemyHP <= 0)
+        {
+            Debug.Log("enemy die");
+        }
+        else
+        {
+            Debug.Log("enemy is taking damage");
+        }
+    }
     private void Patroling()
     {
         Debug.Log("Patroling");
@@ -96,6 +125,7 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("Attacking");
             // Add my attack here
+            hb.TakeDamage(10);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

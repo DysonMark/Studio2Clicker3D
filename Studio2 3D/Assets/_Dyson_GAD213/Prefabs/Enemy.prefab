@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1290259796321620775}
   - component: {fileID: 3813677505245761355}
   - component: {fileID: 1349022459154888540}
-  m_Layer: 0
+  - component: {fileID: -4530063099878934923}
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +114,7 @@ MonoBehaviour:
   attackRange: 3.88
   playerInSightRange: 0
   playerInAttackRange: 0
+  hb: {fileID: 0}
 --- !u!195 &3813677505245761355
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -162,3 +164,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-4530063099878934923
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516628538639132113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}

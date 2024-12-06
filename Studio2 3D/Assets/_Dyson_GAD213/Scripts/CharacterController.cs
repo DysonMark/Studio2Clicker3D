@@ -92,7 +92,7 @@ public class CharacterController : MonoBehaviour
     
     void NoSprint(InputAction.CallbackContext context)
     {
-        agent.speed = 3;
+        agent.speed = 6;
         animator.SetBool("shift", false);
         animator.SetBool("HasClicked", true);
     }
