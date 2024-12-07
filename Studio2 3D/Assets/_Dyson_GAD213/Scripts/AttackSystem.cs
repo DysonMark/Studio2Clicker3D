@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class AttackSystem : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] private float cooldownTime = 2f;
 
     private bool attacking = false;
+
+    public EnemyAI _enemyAI;
+    [SerializeField] private GameObject sword;
+    [SerializeField] private Animator enemyAnim;
     #endregion
     void Awake()
     {
@@ -39,9 +44,9 @@ public class AttackSystem : MonoBehaviour
     {
         if (cooldown == false)
         {
-            Debug.Log("Player attacking");
             animator.SetLayerWeight(animator.GetLayerIndex("Attack Layer"), 1); 
             animator.SetTrigger("Attack");
+            sword.GetComponent<SwordAttack>().hasHit = false;
             cooldown = true;    
             yield return new WaitForSeconds(cooldownTime);
         }
@@ -56,5 +61,13 @@ public class AttackSystem : MonoBehaviour
     void OnDisable()
     {
         input.Disable();
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //_enemyAI.EnemyTakeDamage(10, enemyAnim);
+        }
     }
 }

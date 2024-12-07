@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 using Random = System.Random;
 
@@ -15,9 +16,13 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask isThisGround, isThisPlayer;
 
-    private int enemyHP = 100;
+    public int enemyHP = 100;
 
     public Slider healthBar;
+
+    [SerializeField] public Animator _animator;
+
+    public bool gettingDamaged = false;
    
     //Enemy patroling variables
 
@@ -39,7 +44,7 @@ public class EnemyAI : MonoBehaviour
 
     public HealthBar hb;
 
-    private void Update()
+    private void FixedUpdate()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, isThisPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isThisPlayer);
@@ -53,10 +58,7 @@ public class EnemyAI : MonoBehaviour
 
         healthBar.value = enemyHP;
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            EnemyTakeDamage(10);
-        }
+        agent.speed = 10;
     }
 
     private void Awake()
@@ -65,12 +67,14 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void EnemyTakeDamage(int damageAmount)
+    public void EnemyTakeDamage(int damageAmount, Animator _animator)
     {
+        _animator.SetBool("takeDamage", true);
         enemyHP -= damageAmount;
-
+        gettingDamaged = true;
         if (enemyHP <= 0)
         {
+            enemyHP = 0;
             Debug.Log("enemy die");
         }
         else
@@ -80,6 +84,8 @@ public class EnemyAI : MonoBehaviour
     }
     private void Patroling()
     {
+        _animator.SetBool("takeDamage", false);
+        _animator.SetBool("Attack", false);
         Debug.Log("Patroling");
         if (!walkPointSet)
             SearchWalkPoint();
@@ -111,6 +117,8 @@ public class EnemyAI : MonoBehaviour
     {
         Debug.Log("Chasing!!");
         agent.SetDestination(player.position);
+        _animator.SetBool("Attack", false);
+        _animator.SetBool("takeDamage", false);
     }
 
     private void AttackPlayer()
@@ -118,18 +126,28 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("Attacking");
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
-        
+        _animator.SetBool("takeDamage", false);
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             Debug.Log("Attacking");
             // Add my attack here
+            _animator.SetBool("Attack", true);
             hb.TakeDamage(10);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
+
+    /*
+    private void OnAnimatorMove()
+    {
+        if (_animator.GetBool("Attack") == false)
+        {
+            agent.speed = (_animator.deltaPosition / Time.deltaTime).magnitude;
+        }
+    }*/
 
     private void ResetAttack()
     {
