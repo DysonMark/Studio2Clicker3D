@@ -8579,8 +8579,7 @@ MonoBehaviour:
   cooldown: 0
   cooldownTime: 2
   _enemyAI: {fileID: 1728663194}
-  enemySlider: {fileID: 193231188}
-  sword: {fileID: 0}
+  sword: {fileID: 959878629}
   enemyAnim: {fileID: 1682560458}
 --- !u!114 &2013920013 stripped
 MonoBehaviour:
