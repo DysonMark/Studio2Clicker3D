@@ -13,7 +13,7 @@ public class SwordAttack : MonoBehaviour
     public bool hasHit;
 
     private string tt;
-
+    
     public EnemyAI _enemyAI;
 
     public Slider enemySlider;
@@ -30,6 +30,8 @@ public class SwordAttack : MonoBehaviour
             if (hit.transform.root.GetComponent<EnemyAI>() != null && !hasHit)
             {
                 hit.transform.root.GetComponent<EnemyAI>().EnemyTakeDamage(damage, _enemyAI._animator);
+                _enemyAI.enemyHP = hit.transform.root.GetComponent<EnemyAI>().enemyHP;
+                enemySlider.value = hit.transform.root.GetComponent<EnemyAI>().enemyHP;
                 hasHit = true;
                 Debug.Log(_enemyAI.enemyHP);
             }

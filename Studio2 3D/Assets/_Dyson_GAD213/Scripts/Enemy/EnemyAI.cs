@@ -44,6 +44,12 @@ public class EnemyAI : MonoBehaviour
 
     public HealthBar hb;
 
+    public void Start() 
+    {
+        hb = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
+        
+    }
+
     private void FixedUpdate()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, isThisPlayer);
@@ -75,6 +81,9 @@ public class EnemyAI : MonoBehaviour
         if (enemyHP <= 0)
         {
             enemyHP = 0;
+            //StartCoroutine(DelayAnimation("die",2.0f));
+            _animator.SetTrigger("die");
+            StartCoroutine(DelayDeath(2));
             Debug.Log("enemy die");
         }
         else
@@ -82,6 +91,21 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("enemy is taking damage");
         }
     }
+
+    private IEnumerator DelayAnimation(string animationClipName,float time)
+    {
+        yield return new WaitForSeconds(time);
+        _animator.SetTrigger(animationClipName);
+    }
+    
+    
+    
+    public IEnumerator DelayDeath(int time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
+    
     private void Patroling()
     {
         _animator.SetBool("takeDamage", false);

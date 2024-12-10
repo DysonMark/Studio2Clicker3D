@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
         var enemyPosition = UnityEngine.Random.Range(1, 3);
 
         if (enemyPosition == 1)
-            Instantiate(enemy, firstSpawner.transform);
+            //Instantiate(enemy, new Vector3(firstSpawner.transform.position.x, 1.0f, firstSpawner.transform.position.z) );
         if (enemyPosition == 2)
             Instantiate(enemy, secondSpawner.transform);
         if (enemyPosition == 3)
