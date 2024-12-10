@@ -3431,7 +3431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfad0fc4c146c245a77d3cd313a5276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 35
   maxDistance: 1
   hasHit: 0
   _enemyAI: {fileID: 4233313908084025811}
@@ -6976,7 +6976,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1583913436
 MonoBehaviour:
   m_ObjectHideFlags: 0
