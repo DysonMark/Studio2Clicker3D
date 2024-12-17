@@ -8262,9 +8262,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allFilesInBucket:
-  - Shadowfell Combat Dark Combat Music.mp3
+  - Dark Combat Music.mpeg
+  - dog.png
+  - Yi.txt
+  - TestFireBase.txt
   destinationFolderPath: C:/Users/dyson/Studio 2 Project 3D/Studio2 3D/Assets/StreamingAssets
   simulateNoInternet: 0
+  storageBucketFileMetaDeta: []
 --- !u!4 &1889259656
 Transform:
   m_ObjectHideFlags: 0
@@ -9492,7 +9496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793195253890972160, guid: df7da114756301d4c954d4dcf359365e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.51
+      value: -36.3
       objectReference: {fileID: 0}
     - target: {fileID: 5793195253890972160, guid: df7da114756301d4c954d4dcf359365e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9537,6 +9541,10 @@ PrefabInstance:
     - target: {fileID: 6354794664035034945, guid: df7da114756301d4c954d4dcf359365e, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770038526712286385, guid: df7da114756301d4c954d4dcf359365e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.327
       objectReference: {fileID: 0}
     - target: {fileID: 7137312309286714924, guid: df7da114756301d4c954d4dcf359365e, type: 3}
       propertyPath: m_Layer
