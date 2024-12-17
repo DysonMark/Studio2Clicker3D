@@ -75,7 +75,6 @@ public class EnemyAI : MonoBehaviour
         if (enemyHP <= 0)
         {
             enemyHP = 0;
-            Debug.Log("enemy die");
         }
         else
         {
@@ -86,7 +85,6 @@ public class EnemyAI : MonoBehaviour
     {
         _animator.SetBool("takeDamage", false);
         _animator.SetBool("Attack", false);
-        Debug.Log("Patroling");
         if (!walkPointSet)
             SearchWalkPoint();
         if (walkPointSet)
@@ -115,7 +113,6 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Debug.Log("Chasing!!");
         agent.SetDestination(player.position);
         _animator.SetBool("Attack", false);
         _animator.SetBool("takeDamage", false);
@@ -123,7 +120,6 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        Debug.Log("Attacking");
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
         _animator.SetBool("takeDamage", false);
@@ -131,7 +127,6 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            Debug.Log("Attacking");
             // Add my attack here
             _animator.SetBool("Attack", true);
             hb.TakeDamage(10);

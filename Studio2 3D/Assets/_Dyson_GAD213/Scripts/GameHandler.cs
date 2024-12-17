@@ -9,8 +9,6 @@ public class GameHandler : MonoBehaviour
     void Start()
     {
         HealthSystem healthSystem = new HealthSystem(100);
-        Debug.Log("Health: " + healthSystem.GetHealth());
-        Debug.Log("Health: " + healthSystem.GetHealth());
         
     }
 

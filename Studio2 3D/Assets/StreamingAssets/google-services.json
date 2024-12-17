@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "212168384348",
+    "firebase_url": "https://gpg214-dyson-default-rtdb.firebaseio.com",
+    "project_id": "gpg214-dyson",
+    "storage_bucket": "gpg214-dyson.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212168384348:android:4b45c27008037d53a12b99",
+        "android_client_info": {
+          "package_name": "com.SAE.GPG214dyson"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5VLTh8dOnfCyQtVv2wrATpK1BZSF5ONg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
