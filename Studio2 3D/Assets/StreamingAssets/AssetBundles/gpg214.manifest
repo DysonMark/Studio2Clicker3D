@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 407052602
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 34fb7a89656966005d81cd5055da14b1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 99e4743507d7f7979a3eec3810bc4b0a
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 34fb7a89656966005d81cd5055da14b1
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: b247d61341aca0240a7f663010d0a09a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/_Dyson_GPG214/Prefabs/Dog.prefab
+Dependencies: []
