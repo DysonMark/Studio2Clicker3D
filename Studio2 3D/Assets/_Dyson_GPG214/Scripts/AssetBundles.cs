@@ -59,6 +59,9 @@ public class AssetBundles : MonoBehaviour
             playerSprite.sprite = Sprite.Create(doggo, new Rect(0, 0, doggo.width, doggo.height), Vector2.zero);
         }
     }
+    /// <summary>
+    /// Loads the asset bundle
+    /// </summary>
     private void LoadAssetBundle()
     {
         combinedPath = Path.Combine(Application.streamingAssetsPath, folderPath, fileName);

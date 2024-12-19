@@ -138,7 +138,11 @@ namespace SAE.GPG214.Dyson.Storage
             }
             yield return null;
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileToCheck"></param>
+        /// <returns></returns>
         IEnumerator GetFileMetaData(StorageReference fileToCheck)
         {
             Task<StorageMetadata> fileToCheckMetaData = fileToCheck.GetMetadataAsync();
