@@ -18,13 +18,6 @@ public class UnityAnalytics : MonoBehaviour
         //AnalyticsService.Instance.StopDataCollection();
         
         //AnalyticsService
-
-        CustomEvent onStartUpEvent = new CustomEvent("StartUpInformation")
-        {
-            { "Device Type", SystemInfo.deviceType },
-            { "Device Platform", Application.platform.ToString() },
-            { "Device Name", SystemInfo.deviceName }
-        };
         
         //send my event to the service/Unity analytics dashboard.
 
@@ -34,7 +27,13 @@ public class UnityAnalytics : MonoBehaviour
             { "playerKillsPosition", transform.position.ToString() },
             { "levelName", SceneManager.GetActiveScene().name }
         };
-        AnalyticsService.Instance.RecordEvent(GameEvents.onStartUpEvent);
+        
+        CustomEvent onStartUpEvent = new CustomEvent("StartUpInformation")
+        {
+            { "deviceType", Application.platform.ToString() },
+            { "deviceBrand", Application.platform.ToString() },
+            { "deviceName", Application.platform.ToString() }
+        };
         Debug.Log("On Start Event Called");
         yield return null;
     }
@@ -47,11 +46,5 @@ public class UnityAnalytics : MonoBehaviour
 
     public static class GameEvents
     {
-        public static CustomEvent onStartUpEvent = new CustomEvent("StartUpInformation")
-        {
-            { "Device Type", SystemInfo.deviceType.ToString()},
-            { "Device Platform", Application.platform.ToString() },
-            { "Device Name", SystemInfo.deviceName.ToString()}
-        };
     }
 }

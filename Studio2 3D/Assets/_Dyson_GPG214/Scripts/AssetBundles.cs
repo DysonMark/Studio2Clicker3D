@@ -65,6 +65,8 @@ public class AssetBundles : MonoBehaviour
 
         if (File.Exists(combinedPath))
         {
+            Debug.LogError("Asset Bundle Loaded");
+
             gpgBundle = AssetBundle.LoadFromFile(combinedPath);
             Debug.Log("Asset Bundle Loaded");
         }

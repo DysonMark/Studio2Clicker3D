@@ -15,6 +15,7 @@ public class MyFirebaseDatabase : MonoBehaviour
     public PlayerData dataFromTheServer;
 
     private DatabaseReference _databaseReference;
+    
 
     public string userID;
 
@@ -24,6 +25,8 @@ public class MyFirebaseDatabase : MonoBehaviour
     void Start()
     {
         _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+       //Firebase.Firestore
+        
         myCurrentData = new PlayerData();
         myCurrentData.playerName = "Yulis Kane";
         myCurrentData.numberOfEnemiesKilled = 0;

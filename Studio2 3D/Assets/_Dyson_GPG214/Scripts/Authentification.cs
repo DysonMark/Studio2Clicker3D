@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using TMPro;
 using Firebase;
 using Firebase.Auth;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
+
 public class Authentification : MonoBehaviour
 {
     [SerializeField] private TMP_InputField userEmail;
@@ -12,9 +14,9 @@ public class Authentification : MonoBehaviour
     [SerializeField] private TMP_InputField userDisplayName;
 
     [SerializeField] private Button existingUserButton;
-    [SerializeField] private Button newUserButton;
-    [SerializeField] private Button logInButton;
-    [SerializeField] private Button signOutButton;
+    [SerializeField] private GameObject newUserButton;
+    [SerializeField] private GameObject logInButton;
+    [SerializeField] private GameObject signOutButton;
 
     [SerializeField] private bool useDefaultCredentials;
 
@@ -47,10 +49,11 @@ public class Authentification : MonoBehaviour
 
     private void SetUpButtons()
     {
-        existingUserButton.clicked += NewUser;
-        existingUserButton.clicked -= NewUser;
-        existingUserButton.clicked += ExistingUser;
-        existingUserButton.clicked -= ExistingUser;
+        //existingUserButton.on
+        existingUserButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        existingUserButton.GetComponent<Button>().onClick.AddListener(ExistingUser);
+        newUserButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        newUserButton.GetComponent<Button>().onClick.AddListener(NewUser);
     }
     // Update is called once per frame
     void Update()
