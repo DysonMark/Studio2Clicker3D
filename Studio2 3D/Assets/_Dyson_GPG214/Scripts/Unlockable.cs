@@ -1,18 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Unlockable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public UnlockableData unlock;
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            unlock.UnlockPower(UnlockableData.UnlockablePower.LevelTwoSword);
+        }
         
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            unlock.UnlockPower(UnlockableData.UnlockablePower.Fire);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            unlock.UnlockPower(UnlockableData.UnlockablePower.Ultimate);
+        }
     }
 }

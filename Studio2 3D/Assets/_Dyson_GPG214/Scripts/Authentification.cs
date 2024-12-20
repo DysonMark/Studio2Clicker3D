@@ -14,9 +14,9 @@ public class Authentification : MonoBehaviour
     [SerializeField] private TMP_InputField userDisplayName;
 
     [SerializeField] private Button existingUserButton;
-    [SerializeField] private GameObject newUserButton;
-    [SerializeField] private GameObject logInButton;
-    [SerializeField] private GameObject signOutButton;
+    [SerializeField] private Button newUserButton;
+    [SerializeField] private Button logInButton;
+    [SerializeField] private Button signOutButton;
 
     [SerializeField] private bool useDefaultCredentials;
 
@@ -49,11 +49,10 @@ public class Authentification : MonoBehaviour
 
     private void SetUpButtons()
     {
-        //existingUserButton.on
-        existingUserButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        existingUserButton.GetComponent<Button>().onClick.AddListener(ExistingUser);
-        newUserButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        newUserButton.GetComponent<Button>().onClick.AddListener(NewUser);
+        existingUserButton.onClick.RemoveAllListeners();
+        existingUserButton.onClick.AddListener(ExistingUser);
+        newUserButton.onClick.RemoveAllListeners();
+        newUserButton.onClick.AddListener(NewUser);
     }
     // Update is called once per frame
     void Update()

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Firebase;
 using Firebase.Database;
+using Firebase.Extensions;
+using Firebase.Firestore;
 using Google.MiniJSON;
 
 public class MyFirebaseDatabase : MonoBehaviour
@@ -20,19 +22,29 @@ public class MyFirebaseDatabase : MonoBehaviour
     public string userID;
 
     private string saveFilePath;
-    
+
+    private FirebaseFirestore db;
+
+    private string savePlayerData;
     // Start is called before the first frame update
     void Start()
     {
         _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-       //Firebase.Firestore
-        
         myCurrentData = new PlayerData();
         myCurrentData.playerName = "Yulis Kane";
         myCurrentData.numberOfEnemiesKilled = 0;
         myCurrentData.playerPosition = Vector3.zero;
 
         saveFilePath = Application.streamingAssetsPath + "/PlayerData.json";
+        
+        //Firestore
+
+        db = FirebaseFirestore.DefaultInstance;
+        DocumentReference jsonRef = db.Collection("users").Document("saveData");
+        jsonRef.SetAsync(savePlayerData).ContinueWithOnMainThread(task =>
+        {
+            Debug.Log("json file sent");
+        });
     }
 
     // Update is called once per frame
@@ -50,7 +62,7 @@ public class MyFirebaseDatabase : MonoBehaviour
 
     public void SaveGame()
     {
-        string savePlayerData = JsonUtility.ToJson(myCurrentData);
+        savePlayerData = JsonUtility.ToJson(myCurrentData);
         File.WriteAllText(saveFilePath, savePlayerData);
         Task sendJSon = _databaseReference.Child("users").Child(dataFromTheServer.playerName).Child("PlayerData").SetRawJsonValueAsync(savePlayerData);
 
