@@ -9,57 +9,13 @@ using Firebase.Storage;
 using UnityEngine.Networking;
 using System.Threading;
 using System.Threading.Tasks;
+using SAE.GPG214.Dyson.Data;
 using Application = UnityEngine.Application;
 
-namespace SAE.GPG214.Dyson.Storage
+namespace SAE.GPG214.Dyson.Firebase
 {
-    public class UsingFireBase : MonoBehaviour
+    public class StoreInFirebase : MonoBehaviour
     {
-        /*
-        private FirebaseStorage storage;
-
-        public AudioSource source;
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-            Debug.Log("okok");
-            storage = FirebaseStorage.GetInstance("gs://gpg214-dyson.firebasestorage.app");
-
-            var audioReference = storage.GetReference("Shadowfell Combat Dark Combat Music.mp3");
-            audioReference.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
-            {
-                Debug.Log("hello hello");
-                var path = task.Result.ToString();
-                //StartCoroutine(DownloadAudio(path));
-                DownloadAudio(path);
-            });
-            // var audio = UnityWebRequestMultimedia.GetAudioClip(audioReference.);
-        }
-
-        private IEnumerator DownloadAudio(string path)
-        {
-            UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.OGGVORBIS);
-
-            yield return www.SendWebRequest();
-
-            if (www.result == UnityWebRequest.Result.ConnectionError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                AudioClip myClip = DownloadHandlerAudioClip.GetContent(www);
-                source.PlayOneShot(myClip);
-            }
-            Debug.Log("path:" + path);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        } */
         [SerializeField] private List<string> allFilesInBucket = new List<string>();
         [SerializeField] private string destinationFolderPath = Application.streamingAssetsPath;
 
@@ -138,11 +94,6 @@ namespace SAE.GPG214.Dyson.Storage
             }
             yield return null;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="fileToCheck"></param>
-        /// <returns></returns>
         IEnumerator GetFileMetaData(StorageReference fileToCheck)
         {
             Task<StorageMetadata> fileToCheckMetaData = fileToCheck.GetMetadataAsync();

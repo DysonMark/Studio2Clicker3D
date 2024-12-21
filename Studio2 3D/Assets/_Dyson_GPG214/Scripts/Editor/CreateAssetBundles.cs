@@ -5,21 +5,24 @@ using UnityEditor;
 using UnityEngine;
 using Directory = UnityEngine.Windows.Directory;
 
-public class CreateAssetBundles
+namespace SAE.GPG214.Dyson.AssetBundles
 {
-    [MenuItem("Assets/Build Assets Bundles")]
-
-    static void BuildAllAssetBundles()
+    public class CreateAssetBundles
     {
-        string assetBundleDirectory = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+        [MenuItem("Assets/Build Assets Bundles")]
 
-        if (!Directory.Exists(assetBundleDirectory))
+        static void BuildAllAssetBundles()
         {
-            Directory.CreateDirectory(assetBundleDirectory);
+            string assetBundleDirectory = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+
+            if (!Directory.Exists(assetBundleDirectory))
+            {
+                Directory.CreateDirectory(assetBundleDirectory);
+            }
+
+            BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None,
+                BuildTarget.StandaloneWindows);
         }
 
-        BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None,
-            BuildTarget.StandaloneWindows);
     }
-    
 }
